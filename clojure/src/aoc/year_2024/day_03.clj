@@ -5,7 +5,7 @@
   (->> input
        (re-seq #"mul\((\d+),(\d+)\)")
        (map rest)                     ; keep mul args
-       (map-mx ->int)                 ; parse them as integer
+       (map-mx parse-long)            ; parse them as integer
        (map #(apply * %))             ; multiply them
        (reduce +)))                   ; sum them up
 
@@ -20,6 +20,6 @@
                [true []])                                      ; start with enabled
        second                                                  ; keep instructions (discard the accumulator flag)
        (map rest)                                              ; keep only mul args
-       (map-mx ->int)                                          ; parse them as integer
+       (map-mx parse-long)                                     ; parse them as integer
        (map #(apply * %))                                      ; multiply them
        (reduce +)))                                            ; sum them up

@@ -1,11 +1,6 @@
 (ns aoc.core
   (:require [clojure.string :as str]))
 
-(defn ->int
-  "Parse `n` via `Integer/parseInt`"
-  [n]
-  (Integer/parseInt n))
-
 (defn split-words
   "Split `s` along whitespaces"
   [s]

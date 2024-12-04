@@ -3,9 +3,9 @@
 
 (defn parse [input]
   (->> input
-       split-lines       ; split input by newlines
-       (map split-words) ; split each line by words
-       (map-mx ->int)))  ; parse each number in each line
+       split-lines            ; split input by newlines
+       (map split-words)      ; split each line by words
+       (map-mx parse-long)))  ; parse each number in each line
 
 (defn a [input]
   (->> input

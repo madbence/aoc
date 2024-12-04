@@ -2,10 +2,6 @@
   (:use [clojure.test]
         [aoc.core]))
 
-(deftest test-parse-int
-  (is (= (->int "1337") 1337))
-  (is (= (->int "-1337") -1337)))
-
 (deftest test-split-words
   (is (= (split-words "1 2 3") ["1" "2" "3"]))
   (is (= (split-words "123") ["123"])))

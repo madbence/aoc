@@ -19,7 +19,7 @@
   (->> input
        split-lines
        (map split-words)
-       (map-mx ->int)))
+       (map-mx parse-long)))
 
 (defn a [input]
   (->> input
