@@ -1,4 +1,4 @@
-(ns aoc.year-2024.day-02
+(ns aoc.2024.02
   (:use aoc.core))
 
 (defn safe? [report]
@@ -21,13 +21,13 @@
        (map split-words)
        (map-mx parse-long)))
 
-(defn a [input]
+(defn part-1 [input]
   (->> input
        parse-report
        (filter safe?)
        count))
 
-(defn b [input]
+(defn part-2 [input]
   (->> input
        parse-report
        (map variations)

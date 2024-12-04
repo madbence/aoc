@@ -1,4 +1,4 @@
-(ns aoc.year-2024.day-01
+(ns aoc.2024.01
   (:use [aoc.core]))
 
 (defn parse [input]
@@ -7,7 +7,7 @@
        (map split-words)      ; split each line by words
        (map-mx parse-long)))  ; parse each number in each line
 
-(defn a [input]
+(defn part-1 [input]
   (->> input
        parse
        transpose            ; flip
@@ -17,7 +17,7 @@
        (map abs)            ; take distance based on difference
        (reduce +)))         ; sum up distances
 
-(defn b [input]
+(defn part-2 [input]
   (let [[left right] (->> input                ; same as before, but separate the left and right columns
                           parse
                           transpose)

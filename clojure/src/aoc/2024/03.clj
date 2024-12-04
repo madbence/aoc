@@ -1,7 +1,7 @@
-(ns aoc.year-2024.day-03
+(ns aoc.2024.03
   (:use aoc.core))
 
-(defn a [input]
+(defn part-1 [input]
   (->> input
        (re-seq #"mul\((\d+),(\d+)\)")
        (map rest)                     ; keep mul args
@@ -9,7 +9,7 @@
        (map #(apply * %))             ; multiply them
        (reduce +)))                   ; sum them up
 
-(defn b [input]
+(defn part-2 [input]
   (->> input
        (re-seq #"mul\((\d+),(\d+)\)|do\(\)|don't\(\)")         ; iterate over instructions
        (reduce (fn [[enabled acc] ins]

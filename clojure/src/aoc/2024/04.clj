@@ -1,4 +1,4 @@
-(ns aoc.year-2024.day-04
+(ns aoc.2024.04
   (:use [aoc.core]))
 
 (def masks
@@ -16,7 +16,7 @@
        (map #(get-in puzzle %)) ; extract chars
        (apply str)))            ; concat into string
 
-(defn a [input]
+(defn part-1 [input]
   (let [puzzle (-> input split-lines vec)]
     (->> (for [x (-> puzzle first count range)
                y (-> puzzle count range)
@@ -26,7 +26,7 @@
          (filter #{"XMAS" "SAMX"})
          count)))
 
-(defn b [input]
+(defn part-2 [input]
   (let [puzzle (-> input split-lines vec)]
     (->> (for [x (-> puzzle first count range)
                y (-> puzzle count range)]

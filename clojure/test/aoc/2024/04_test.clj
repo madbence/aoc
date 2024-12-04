@@ -1,6 +1,6 @@
-(ns aoc.year-2024.day-04-test
+(ns aoc.2024.04-test
   (:use clojure.test
-        aoc.year-2024.day-04))
+        aoc.2024.04))
 
 (def fixture "MMMSXXMASM
 MSAMXMSMSA
@@ -13,8 +13,8 @@ SAXAMASAAA
 MAMMMXMMMM
 MXMXAXMASX")
 
-(deftest test-a
-  (is (= (a fixture) 18)))
+(deftest test-part-1
+  (is (= (part-1 fixture) 18)))
 
-(deftest test-b
-  (is (= (b fixture) 9)))
+(deftest test-part-2
+  (is (= (part-2 fixture) 9)))
