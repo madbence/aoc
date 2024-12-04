@@ -1,11 +1,15 @@
 (ns aoc.year-2024.day-01
   (:use [aoc.core]))
 
+(defn parse [input]
+  (->> input
+       split-lines       ; split input by newlines
+       (map split-words) ; split each line by words
+       (map-mx ->int)))  ; parse each number in each line
+
 (defn a [input]
   (->> input
-       split-lines          ; split input by newlines
-       (map split-words)    ; split each line by words
-       (map-mx ->int)       ; parse each number in each line
+       parse
        transpose            ; flip
        (map sort)           ; sort each columns
        transpose            ; flip back
@@ -15,9 +19,7 @@
 
 (defn b [input]
   (let [[left right] (->> input                ; same as before, but separate the left and right columns
-                          split-lines
-                          (map split-words)
-                          (map-mx ->int)
+                          parse
                           transpose)
         freqs (frequencies right)]             ; count occurences in the right column
     (->> left
