@@ -17,3 +17,8 @@
   "Flips `mx`"
   [mx]
   (apply map vector mx))
+
+(defn map-mx
+  "Map matrix `mx` via `f`"
+  [f mx]
+  (map #(map f %) mx))
