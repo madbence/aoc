@@ -17,11 +17,9 @@
        (apply str)))            ; concat into string
 
 (defn a [input]
-  (let [puzzle (-> input split-lines vec)
-        cols (count (first puzzle))
-        rows (count puzzle)]
-    (->> (for [x (range cols)
-               y (range rows)
+  (let [puzzle (-> input split-lines vec)]
+    (->> (for [x (-> puzzle first count range)
+               y (-> puzzle count range)
                mask masks]
            (map #(map + %1 %2) (repeat [x y]) mask))
          (map #(extract-str puzzle %))
@@ -29,11 +27,9 @@
          count)))
 
 (defn b [input]
-  (let [puzzle (-> input split-lines vec)
-        cols (count (first puzzle))
-        rows (count puzzle)]
-    (->> (for [x (range cols)
-               y (range rows)]
+  (let [puzzle (-> input split-lines vec)]
+    (->> (for [x (-> puzzle first count range)
+               y (-> puzzle count range)]
            (map #(map + %1 %2) (repeat [x y]) mask'))
          (map #(extract-str puzzle %))
          (filter #{"MASMS" "MASSM" "SAMMS" "SAMSM"})
